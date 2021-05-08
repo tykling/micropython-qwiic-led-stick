@@ -33,9 +33,30 @@ class QwiicLedStick:
 
     def set_all_led_color(self, reds, greens, blues):
         """Set the color of all LEDs from three lists of colors."""
-        self.write(register=I2C_REGISTER_WRITE_RED_ARRAY, payload=bytearray(reds))
-        self.write(register=I2C_REGISTER_WRITE_GREEN_ARRAY, payload=bytearray(greens))
-        self.write(register=I2C_REGISTER_WRITE_BLUE_ARRAY, payload=bytearray(blues))
+        self.set_all_led_reds(reds)
+        self.set_all_led_greens(greens)
+        self.set_all_led_blues(blues)
+
+
+    def set_all_led_reds(self, reds):
+        """Set the red part of all LEDs from a list."""
+        #self.write(register=I2C_REGISTER_WRITE_RED_ARRAY, payload=bytearray(reds))
+        for led in range(1,11):
+            self.set_led_color(led, reds[led-1])
+
+
+    def set_all_led_greens(self, reds):
+        """Set the green part of all LEDs from a list."""
+        #self.write(register=I2C_REGISTER_WRITE_GREEN_ARRAY, payload=bytearray(greens))
+        for led in range(1,11):
+            self.set_led_color(led, greens[led-1])
+
+
+    def set_all_led_blues(self, reds):
+        """Set the blue part of all LEDs from a list."""
+        #self.write(register=I2C_REGISTER_WRITE_BLUE_ARRAY, payload=bytearray(blues))
+        for led in range(1,11):
+            self.set_led_color(led, blues[led-1])
 
 
     def set_led_brightness(self, led, brightness):

@@ -13,5 +13,5 @@ while True:
     brightnesses = [urandom.getrandbits(5) for _ in range(0,10)]
     ledstick.set_all_led_color(reds, greens, blues)
     for led in range(1,11):
-        ledstick.set_led_brightness(led, brightnesses[led])
+        ledstick.set_led_brightness(led, brightnesses[led-1])
     time.sleep(1)
