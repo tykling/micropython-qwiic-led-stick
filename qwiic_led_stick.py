@@ -51,3 +51,12 @@ class QwiicLedStick:
         for led in range(0,10):
             self.set_led_color(led, red, green, blue)
 
+    def set_all_led_brightness(self, brightness):
+        """Change the brightness of all LEDs."""
+        brightness = min(max(brightness, 0), 31)
+        for led in range(0,10):
+            self.set_led_brightness(led, brighness)
+
+    def turn_all_led_off(self):
+        """Turn all LEDs off but keep their current colors."""
+        self.set_all_led_brightness(self, 0)
