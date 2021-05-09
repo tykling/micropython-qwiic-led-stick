@@ -45,7 +45,7 @@ class QwiicLedStick:
         """
         led = min(max(led, 1), 10)
         brightness = min(max(brightness, 0), 31)
-        self.write(register=I2C_REGISTER_WRITE_SINGLE_LED_BRIGHTNESS, payload=bytearray([led, brightness]))
+        self.write(register=I2C_REGISTER_WRITE_SINGLE_LED_BRIGHTNESS, payload=bytearray([led, brightness])
 
 
     def set_all_led_same_color(self, red, green, blue):
